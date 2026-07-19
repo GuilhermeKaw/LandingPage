@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinix Mod | Upgrades de Elite para GTA V</title>
+    <link rel="icon" type="image/jpeg" href="./pictures/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- ScrollReveal para animações -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <!-- Linha de Brilho Superior Estilizada -->
+    <div class="top-glow-bar"></div>
+    
+    <!-- NAVBAR EM ESTILO PÍLULA FLUTUANTE TRAVADA NO TOPO -->
+    <header>
+        <div class="navbar container">
+            <nav id="nav">
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                    <span id="hamburger"></span>
+                </button>
+                <ul class="nav-links" id="menu" role="menu">
+                    <li><a href="#inicio" role="menuitem">Início</a></li>
+                    <li><a href="#planos" role="menuitem">Planos de Upagem</a></li>
+                    <li><a href="#personalizados" role="menuitem">Pedidos Personalizados</a></li>
+                    <li><a href="#metodo" role="menuitem">Nosso Método</a></li>
+                    <li><a href="#faq" role="menuitem">FAQ</a></li>
+                    <li><a href="#comunidade" role="menuitem">Comunidade</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO COMPLETO -->
+    <section id="inicio" class="hero">
+        <div class="ambient-glow"></div>
+        <div class="hero-content container">
+            <div class="badge-reveal">INFINIX MOD</div>
+            <h1>SUA CONTA NO<br>NÍVEL MÁXIMO DE PODER</h1>
+            <p class="hero-p">A Infinix Mod reconstrói sua experiência no GTA V Online. Dinheiro instantâneo, modificações estéticas exclusivas e níveis customizados com segurança e métodos indetectáveis.</p>
+            <div class="hero-cta">
+                <a href="#planos" class="btn-main">CONHECER PLANOS</a>
+                <a href="#metodo" class="btn-sub">VERIFICAR SEGURANÇA</a>
+            </div>
+        </div>
+        <div class="hero-fade-bottom"></div>
+    </section>
+
+    <!-- CENTRAL DE PLANOS DE UPAGEM COMPLETOS -->
+    <section id="planos" class="content-section container">
+        <div class="section-header text-center">
+            <h2 class="title-reveal">PLANOS DE <span>UPAGEM</span></h2>
+            <p class="subtitle-reveal">Selecione a opção ideal para o seu progresso geral</p>
+        </div>
+        <div class="cards-wrapper grid-4-cols">
+            <!-- PLANO INICIAL -->
+            <div class="minimal-vip-card reveal-left">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">PLANO INICIAL</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span><strong>Dinheiro:</strong> 10 Milhões</span></li>
+                        <li><i class="fas fa-car"></i> <span><strong>Carros:</strong> 5 unidades</span></li>
+                        <li><i class="fas fa-tshirt"></i> <span><strong>Roupas:</strong> 5 trajes</span></li>
+                        <li><i class="fas fa-globe"></i> <span><strong>Nível:</strong> 120 ao 500</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 15,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Plano Inicial', 15.00, 'Plano')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- PLANO MÉDIO -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">PLANO MÉDIO</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span><strong>Dinheiro:</strong> 30 Milhões</span></li>
+                        <li><i class="fas fa-car"></i> <span><strong>Carros:</strong> 10 unidades mod</span></li>
+                        <li><i class="fas fa-tshirt"></i> <span><strong>Roupas:</strong> 10 trajes mod</span></li>
+                        <li><i class="fas fa-globe"></i> <span><strong>Nível:</strong> 500 ao 5000</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 30,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Plano Médio', 30.00, 'Plano')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- PLANO AVANÇADO -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">PLANO AVANÇADO</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span><strong>Dinheiro:</strong> 70 Milhões</span></li>
+                        <li><i class="fas fa-gift"></i> <span><strong>Brindes inclusos</strong></span></li>
+                        <li><i class="fas fa-car"></i> <span><strong>Carros:</strong> 30 unidades mod</span></li>
+                        <li><i class="fas fa-tshirt"></i> <span><strong>Roupas:</strong> 15 trajes mod</span></li>
+                        <li><i class="fas fa-globe"></i> <span><strong>Nível:</strong> 5000 ao 8000</span></li>
+                        <li><i class="fas fa-home"></i> <span><strong>Propriedades:</strong> 5 GTA V+</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 50,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Plano Avançado', 50.00, 'Plano')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- PLANO SUPREMO -->
+            <div class="minimal-vip-card reveal-right">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">PLANO SUPREMO</h3>
+                    <ul class="features-list">
+                        <li class="unlock-all-tag"><i class="fas fa-trophy"></i> <span>Unlock All</span></li>
+                        <li><i class="fas fa-money-bill-wave"></i> <span><strong>Dinheiro:</strong> 120 Milhões</span></li>
+                        <li><i class="fas fa-gift"></i> <span><strong>Brindes inclusos</strong></span></li>
+                        <li><i class="fas fa-car"></i> <span><strong>Carros:</strong> 50 unidades mod</span></li>
+                        <li><i class="fas fa-tshirt"></i> <span><strong>Roupas:</strong> 20 trajes mod</span></li>
+                        <li><i class="fas fa-globe"></i> <span><strong>Nível:</strong> 5000 ao 8000+</span></li>
+                        <li><i class="fas fa-home"></i> <span><strong>Propriedades:</strong> 10 GTA V+</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 70,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Plano Supremo', 70.00, 'Plano')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENTRAL DE PEDIDOS PERSONALIZADOS -->
+    <section id="personalizados" class="content-section container" style="padding-top: 0;">
+        <div class="section-header text-center">
+            <h2 class="title-reveal">PEDIDOS <span>PERSONALIZADOS</span></h2>
+            <p class="subtitle-reveal">Monte o seu pacote ou escolha recursos avulsos de acordo com sua necessidade</p>
+        </div>
+        
+        <h3 class="category-title">Unlocks & Modificações</h3>
+        <div class="cards-wrapper grid-4-cols" style="margin-bottom: 60px;">
+            <!-- UNLOCK ALL -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Unlock All</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-trophy"></i> <span>Liberação completa de conquistas</span></li>
+                        <li><i class="fas fa-lock-open"></i> <span>Itens e prêmios desbloqueados</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 10,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Unlock All Avulso', 10.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- UNLOCK + NÍVEL -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Unlock + Nível</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-trophy"></i> <span>Tudo Desbloqueado (Unlock All)</span></li>
+                        <li><i class="fas fa-level-up-alt"></i> <span>Nível Customizado Escolhido</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 20,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Unlock + Nível', 20.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- CARROS MOD -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Carros Mod</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-car"></i> <span>Unidades totalmente modificadas</span></li>
+                        <li><i class="fas fa-paint-roller"></i> <span>Estética e tunagem exclusivas</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR UNITÁRIO</span>
+                        <span class="price-tag">R$ 2,00 <small style="font-size: 12px; color: var(--text-alt);">/cada</small></span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Carros Mod Avulso', 2.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- TRAJES MOD -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Trajes Mod</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-tshirt"></i> <span>Roupas raras e exclusivas</span></li>
+                        <li><i class="fas fa-user-shield"></i> <span>Combinações salvas na conta</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR UNITÁRIO</span>
+                        <span class="price-tag">R$ 2,00 <small style="font-size: 12px; color: var(--text-alt);">/cada</small></span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Trajes Mod Avulso', 2.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="category-title">Injeção de Dinheiro</h3>
+        <div class="cards-wrapper grid-3-cols">
+            <!-- PACOTE 30 MILHÕES -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Pacote 30 Milhões</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span>$30.000.000 Em Conta</span></li>
+                        <li><i class="fas fa-shield-alt"></i> <span>Injeção Stealth Indetectável</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 10,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Injeção 30 Milhões', 10.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- PACOTE 60 MILHÕES -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Pacote 60 Milhões</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span>$60.000.000 Em Conta</span></li>
+                        <li><i class="fas fa-shield-alt"></i> <span>Injeção Stealth Indetectável</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 15,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Injeção 60 Milhões', 15.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+            <!-- PACOTE 90 MILHÕES -->
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Pacote 90 Milhões</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-money-bill-wave"></i> <span>$90.000.000 Em Conta</span></li>
+                        <li><i class="fas fa-shield-alt"></i> <span>Injeção Stealth Indetectável</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR</span>
+                        <span class="price-tag">R$ 20,00</span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Injeção 90 Milhões', 20.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 🛒 BOTÃO FLUTUANTE DE ACESSO AO CARRINHO -->
+    <button id="floating-cart-btn" onclick="abrirCarrinho()" title="Ver carrinho">
+        <i class="fas fa-shopping-basket"></i>
+    </button>
+
+    <!-- POP-UP / MODAL DO CARRINHO PERSONALIZADO -->
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div id="cart-warning-banner" class="cart-alert-banner">
+                <i class="fas fa-triangle-exclamation"></i>
+                <span id="cart-warning-text">Máximo de 10 unidades por produto!</span>
+            </div>
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> SUA SELEÇÃO DE UPGRADES</h3>
+                <button class="close-modal-btn" onclick="fecharCarrinho()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items-container">
+                    <!-- Conteúdo dinâmico JS -->
+                </div>
+                <div class="modal-total-section">
+                    <span>TOTAL ESTIMADO:</span>
+                    <strong id="cart-total-price">R$ 0,00</strong>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn-continue-shopping" onclick="fecharCarrinho()">+ ADICIONAR MAIS ITENS</button>
+                <button class="btn-finish-whatsapp" onclick="enviarPedidoWhatsApp()"><i class="fab fa-whatsapp"></i> FINALIZAR PEDIDO (VENDAS)</button>
+                <button class="btn-continue-shopping" onclick="chamarSuporteAvulso()" style="border-color: rgba(0, 188, 112, 0.3); color: var(--green-neon); margin-top: 5px;"><i class="fas fa-headset"></i> FALAR COM O SUPORTE (DÚVIDAS)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMO FUNCIONA O ATENDIMENTO -->
+    <section id="metodo" class="method-section">
+        <div class="container method-grid">
+            <div class="method-info reveal-left">
+                <h2>Como Funciona o <span>Nosso Método?</span></h2>
+                <p>O processo de upagem da sua conta é simples, rápido e direto. Veja como iniciar o seu pedido em poucos passos:</p>
+                
+                <div class="steps-wrapper">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h4>Escolha seu Plano ou Pedido</h4>
+                            <p>Navegue pela nossa central de planos completos ou escolha os recursos avulsos personalizados que você deseja adicionar à sua conta.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h4>Redirecionamento ao WhatsApp</h4>
+                            <p>Ao clicar no botão <strong>"Adquirir Agora"</strong>, você será direcionado imediatamente para o WhatsApp oficial do especialista responsável pela injeção e upagem da conta.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h4>Faça o seu Pedido e Garanta seu Upgrade</h4>
+                            <p>Uma mensagem automática com o plano escolhido já estará pronta no seu chat. Basta enviá-la para fechar os detalhes, tirar suas dúvidas e iniciar o procedimento em sua conta com segurança militar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="method-visual reveal-right">
+                <div class="space-orbit-container">
+                    <div class="solar-orbit">
+                        <div class="holo-cube cube-whatsapp">
+                            <i class="fab fa-whatsapp" style="filter: drop-shadow(0 0 15px #25D366); font-size: 52px; color: #fff;"></i>
+                        </div>
+                        <div class="holo-cube cube-discord">
+                            <i class="fab fa-discord" style="filter: drop-shadow(0 0 15px #5865F2); font-size: 48px; color: #fff;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÓPICO NATIVO: PERGUNTAS FREQUENTES (FAQ ACCORDION) -->
+    <section id="faq" class="content-section container">
+        <div class="section-header text-center">
+            <h2 class="title-reveal">PERGUNTAS <span>FREQUENTES</span></h2>
+            <p class="subtitle-reveal">Esclareça suas dúvidas operacionais antes de fechar o seu pacote</p>
+        </div>
+        
+        <div class="faq-wrapper reveal-bottom">
+            <!-- Pergunta 1 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>1. Tem algum risco de banimento na minha conta?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>Nossos métodos de injeção direta utilizam a tecnologia Stealth Anti-Cheat Bypass, com procedimentos desenvolvidos para minimizar ao máximo os riscos de detecção, resets ou banimentos. Embora nenhum método possa garantir risco zero, adotamos práticas rigorosas e constantemente atualizadas para aumentar a segurança do processo e oferecer a melhor experiência possível aos nossos clientes.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>2. Qual é o prazo de entrega após a aprovação do pedido?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>O prazo padrão para início e conclusão do procedimento varia entre <strong>30 minutos e 24 horas</strong>. O tempo exato depende diretamente do tamanho do pacote selecionado e da fila operacional do painel no momento.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>3. Eu preciso enviar os dados de acesso da conta?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>Para pacotes de injeção direta (Dinheiro, Nível e Trajes), precisamos do acesso temporário à plataforma onde o GTA Online está vinculado (Steam ou Epic Games) e também ao perfil da Rockstar Games associado à conta. Recomendamos alterar suas senhas para credenciais temporárias antes de nos enviar os dados de acesso e redefini-las assim que notificarmos a conclusão da entrega.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>4. O dinheiro e nível somem na próxima atualização do jogo?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>Não. Todos os upgrades aplicados à sua conta são fixados de forma definitiva na nuvem do game. Mudanças comuns de DLC ou patches de correção estrutural não afetam ou removem os valores injetados.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>5. Posso entrar no jogo enquanto o serviço está em andamento?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p><strong>Não.</strong> É estritamente proibido abrir o jogo ou tentar fazer login na plataforma durante a injeção. Se duas conexões simultâneas forem detectadas de IPs distintos, o servidor do jogo derrubará o painel. Avisaremos você no chat imediatamente assim que finalizarmos.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="faq-accordion-item">
+                <button class="faq-accordion-trigger">
+                    <span>6. Quais são os métodos de pagamentos aceitos?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>No momento, estamos aceitando pagamentos <strong>apenas via PIX</strong>. Essa é a forma mais segura e rápida de processamento, garantindo que a aprovação do seu pedido seja instantânea e que possamos iniciar a injeção dos arquivos na sua conta imediatamente após o envio do comprovante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DA COMUNIDADE COM DESIGN BENTO GRID ASSIMÉTRICO VIP -->
+    <section id="comunidade" class="content-section container">
+        <div class="section-header text-center">
+            <h2 class="title-reveal">COMUNIDADE <span>INFINIX MOD</span></h2>
+            <p class="subtitle-reveal">Não jogue sozinho. Entre nas centrais oficiais de jogadores de elite.</p>
+        </div>
+        
+        <div class="bento-grid-comunidade reveal-bottom">
+            <!-- CARD GRANDE DE DESTAQUE: DISCORD -->
+            <div class="bento-card bento-main-discord">
+                <div class="bento-content">
+                    <div class="bento-badge-top"><i class="fab fa-discord"></i> CHAT OFICIAL</div>
+                    <h3>SERVIDOR DISCORD</h3>
+                    <p class="bento-desc">A central secreta da Infinix. Onde o clã se reúne diariamente para resenhas, calls operacionais e atualizações de segurança.</p>
+                    <ul class="bento-list">
+                        <li><i class="fas fa-check"></i> Sorteios exclusivos de contas completas e pacotes de dinheiro</li>
+                        <li><i class="fas fa-check"></i> Calls abertas para coordenar Golpes, Heists e lobbies modders</li>
+                    </ul>
+                    <!-- 🔗 LINK DO DISCORD ATUALIZADO -->
+                    <a href="https://discord.com/invite/t23evcunz8" target="_blank" class="btn-bento btn-discord-style">CONECTAR AO SERVIDOR</a>
+                </div>
+            </div>
+
+            <!-- CARD GRANDE DE DESTAQUE: WHATSAPP -->
+            <div class="bento-card bento-main-whatsapp">
+                <div class="bento-content">
+                    <div class="bento-badge-top"><i class="fab fa-whatsapp"></i> RESENHA ATIVA</div>
+                    <h3>GRUPO WHATSAPP</h3>
+                    <p class="bento-desc">O ponto de encontro diário dos players da Infinix. O canal perfeito para trocar ideias, mandar prints e interagir com o clã.</p>
+                    <ul class="bento-list">
+                        <li><i class="fas fa-check"></i> Espaço aberto para resenha geral e networking entre os membros</li>
+                        <li><i class="fas fa-check"></i> Compartilhamento de conquistas e resenhas diárias de GTA</li>
+                    </ul>
+                    <!-- 🔗 LINK DO WHATSAPP ATUALIZADO -->
+                    <a href="https://chat.whatsapp.com/BpeNEf9SoIa0yDuuUa0HrJ" target="_blank" class="btn-bento btn-whatsapp-style">ENTRAR NO GRUPO</a>
+                </div>
+            </div>
+
+            <!-- CARD MENOR: INSTAGRAM -->
+            <div class="bento-card bento-sub-instagram">
+                <div class="bento-content text-center-bento">
+                    <div class="bento-icon-center"><i class="fab fa-instagram"></i></div>
+                    <h3>INSTAGRAM</h3>
+                    <p>Feedbacks diários, setups de contas de clientes e stories em tempo real das upagens.</p>
+                    <!-- 🔗 LINK DO INSTAGRAM ATUALIZADO -->
+                    <a href="https://www.instagram.com/infinix_mods?igsh=a2MzY29mNTZ3bG5j" target="_blank" class="btn-bento btn-instagram-style">VER PRINTS</a>
+                </div>
+            </div>
+
+            <!-- CARD MENOR: TIKTOK -->
+            <div class="bento-card bento-sub-tiktok">
+                <div class="bento-content text-center-bento">
+                    <div class="bento-icon-center"><i class="fab fa-tiktok"></i></div>
+                    <h3>TIKTOK</h3>
+                    <p>Vídeos curtos mostrando o visual in-game de Trajes raros, Carros Mod e gameplays.</p>
+                    <!-- 🔗 LINK DO TIKTOK ATUALIZADO -->
+                    <a href="https://www.tiktok.com/@infinix_mods?_r=1&_t=ZS-988u7n9UbDQ" target="_blank" class="btn-bento btn-tiktok-style">VER GAMEPLAYS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ PREMIUM -->
+    <footer class="main-footer">
+        <div class="footer-top container" style="display: block; text-align: center;">
+            <div class="footer-col brand-col" style="max-width: 800px; margin: 0 auto 30px auto;">
+                <h3 class="footer-logo" style="margin-bottom: 15px;">INFINIX<span>MOD</span></h3>
+                <p class="footer-desc" style="max-width: 680px; margin: 0 auto 25px auto; line-height: 1.6;">Evolua sua conta com rapidez e praticidade. Serviço profissional, suporte premium e acompanhamento completo para você aproveitar ao máximo sua jornada no GTA Online.</p>
+                <div class="badges-grid-layout" style="max-width: 600px; margin: 0 auto;">
+                    <span class="badge-secure"><i class="fas fa-shield-halved"></i> Método Anti-Ban Ativo</span>
+                    <span class="badge-fast"><i class="fas fa-clock"></i> Entrega em 24 Horas</span>
+                    <span class="badge-secure"><i class="fas fa-award"></i> Garantia Infinix de Segurança</span>
+                    <span class="badge-fast"><i class="fab fa-whatsapp"></i> Suporte VIP via WhatsApp</span>
+                </div>
+            </div>
+        </div>
+        <hr class="footer-divider container">
+        <div class="footer-bottom container" style="text-align: center;">
+            <div class="copyright-section">
+                <p>&copy; 2026 <strong>INFINIX MOD</strong>. Todos os direitos reservados.</p>
+                <!-- 🛠️ SEU CRÉDITO COM LINK DO SEU GITHUB -->
+                <p style="margin-top: 8px; font-size: 11px; color: #495057; letter-spacing: 0.5px;">Developed by <a href="https://github.com/GuilhermeKaw" target="_blank" style="color: #6c757d; font-weight: 600; transition: color 0.2s ease;" onmouseover="this.style.color='#00bc70'" onmouseout="this.style.color='#6c757d'">@GuilhermeKaw</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
