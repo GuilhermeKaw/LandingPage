@@ -286,7 +286,7 @@ header {
     font-size: 22px; 
     cursor: pointer; 
     box-shadow: 0 8px 30px rgba(0, 188, 112, 0.4); 
-    z-index: 99999; /* Aumentado para prioridade no desktop */
+    z-index: 99999; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -364,12 +364,15 @@ header {
     .method-grid { grid-template-columns: 1fr; text-align: center; }
     .space-orbit-container { justify-content: center; transform: translateY(20px); margin-bottom: 50px; }
     
-    /* 🟢 CORREÇÃO CRÍTICA DO MOBILE AQUI: Força o carrinho acima de tudo */
+    /* 🟢 TRAVA ABSOLUTA ANTI-SCROLLREVEAL AQUI */
     #floating-cart-btn {
+        position: fixed !important;
         bottom: 30px !important;
         right: 20px !important;
-        z-index: 999999 !important;
+        z-index: 999999999 !important;
         pointer-events: auto !important;
+        transform: none !important;
+        will-change: transform;
     }
 }
 
