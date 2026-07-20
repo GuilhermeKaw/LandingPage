@@ -240,6 +240,7 @@ header {
 .faq-accordion-item.active .faq-accordion-trigger i { transform: rotate(180deg); color: var(--green-neon); }
 .faq-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(255, 255, 255, 0.005); }
 .faq-accordion-content p { padding: 0 28px 24px 28px; color: #ced4da; font-size: 14px; line-height: 1.6; }
+
 /* BENTO GRID COMUNIDADE */
 .bento-grid-comunidade { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(220px, auto); gap: 20px; max-width: 1200px; margin: 0 auto; }
 .bento-main-discord { grid-column: span 2; }
@@ -256,24 +257,28 @@ header {
 .text-center-bento p { font-size: 13px; color: var(--text-alt); line-height: 1.5; }
 .bento-icon-center { font-size: 36px; margin-bottom: 5px; }
 .btn-bento { width: 100%; padding: 14px; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: center; border: 1px solid transparent; transition: 0.3s; margin-top: auto; }
-/* Cores Bento */
+
+/* 🎨 CONTORNO COMPLETO DAS CAIXAS BENTO (CORES TOTAIS E INTEGRADAS) */
+.bento-main-discord { border: 1px solid rgba(88, 101, 242, 0.25); }
 .bento-main-discord .bento-badge-top, .bento-main-discord .bento-list i { color: #5865F2; }
-.bento-main-discord { border-bottom: 2px solid rgba(88, 101, 242, 0.3); }
 .bento-main-discord:hover { border-color: #5865F2; box-shadow: 0 10px 30px rgba(88, 101, 242, 0.15); }
 .btn-discord-style { background: rgba(88, 101, 242, 0.1); border-color: rgba(88, 101, 242, 0.3); color: #fff; }
 .bento-main-discord:hover .btn-discord-style { background: #5865F2; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
+
+.bento-main-whatsapp { border: 1px solid rgba(37, 211, 102, 0.25); }
 .bento-main-whatsapp .bento-badge-top, .bento-main-whatsapp .bento-list i { color: #25D366; }
-.bento-main-whatsapp { border-top: 2px solid rgba(37, 211, 102, 0.3); }
 .bento-main-whatsapp:hover { border-color: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15); }
 .btn-whatsapp-style { background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); color: #fff; }
 .bento-main-whatsapp:hover .btn-whatsapp-style { background: #25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+
+.bento-sub-instagram { border: 1px solid rgba(225, 48, 108, 0.25); }
 .bento-sub-instagram .bento-icon-center { color: #E1306C; }
-.bento-sub-instagram { border-left: 2px solid rgba(225, 48, 108, 0.3); }
 .bento-sub-instagram:hover { border-color: #E1306C; box-shadow: 0 10px 30px rgba(225, 48, 108, 0.15); }
 .btn-instagram-style { background: rgba(225, 48, 108, 0.1); border-color: rgba(225, 48, 108, 0.3); color: #fff; }
 .bento-sub-instagram:hover .btn-instagram-style { background: linear-gradient(45deg, #f09433, #bc1888); }
+
+.bento-sub-tiktok { border: 1px solid rgba(0, 242, 254, 0.25); }
 .bento-sub-tiktok .bento-icon-center { color: #00f2fe; text-shadow: 2px 2px #fe0979; }
-.bento-sub-tiktok { border-right: 2px solid rgba(0, 242, 254, 0.3); }
 .bento-sub-tiktok:hover { border-color: #00f2fe; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15); }
 .btn-tiktok-style { background: rgba(0, 242, 254, 0.05); border-color: rgba(0, 242, 254, 0.2); color: #fff; }
 .bento-sub-tiktok:hover .btn-tiktok-style { background: #000; border-color: #00f2fe; text-shadow: 1px 1px #fe0979; }
@@ -352,7 +357,7 @@ header {
 @media (max-width: 1024px) {
     .bento-grid-comunidade { display: grid; grid-template-columns: repeat(2, 1fr); }
     .bento-main-discord, .bento-main-whatsapp { grid-column: span 2; }
-    .bento-main-whatsapp { grid-row: span 1; border-top: none; border-left: 2px solid rgba(37, 211, 102, 0.3); }
+    .bento-main-whatsapp { grid-row: span 1; border: 1px solid rgba(37, 211, 102, 0.25) !important; }
     .footer-top { grid-template-columns: 1fr; gap: 30px; }
 }
 @media (max-width: 900px) {
@@ -365,7 +370,12 @@ header {
         height: 0 !important;
     }
 
-    /* 🎯 AJUSTE DO TÍTULO CORTADO PARA FICAR RETO E CABER NO CELULAR */
+    /* 🎯 AJUSTE DE MARGIN PARA DAR ESPAÇAMENTO PERFEITO E REORGANIZAR TÍTULOS CORTADOS NO CELULAR */
+    .section-header {
+        margin-top: 50px !important;
+        margin-bottom: 40px !important;
+    }
+    
     .section-header h2 {
         font-size: 26px !important;
         white-space: normal !important;
