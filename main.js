@@ -4,11 +4,11 @@
 function forcarPrioridadeCarrinho() {
     const carrinhoBtn = document.getElementById("floating-cart-btn");
     if (carrinhoBtn) {
-        // Move o botão para a raiz do body, isolando-o das seções animadas
+        // Remove fisicamente o botão de dentro de seções e joga na raiz do site
         if (carrinhoBtn.parentElement !== document.body) {
             document.body.appendChild(carrinhoBtn);
         }
-        // Força via inline as propriedades de renderização e remove interferências
+        // Aplica inline as diretrizes máximas de exibição sobrepondo qualquer biblioteca
         carrinhoBtn.style.setProperty("position", "fixed", "important");
         carrinhoBtn.style.setProperty("z-index", "999999999", "important");
         carrinhoBtn.style.setProperty("transform", "none", "important");
@@ -16,7 +16,7 @@ function forcarPrioridadeCarrinho() {
     }
 }
 
-// Executa em múltiplos estágios do carregamento para garantir o bypass do ScrollReveal
+// Escuta em múltiplas frentes para garantir que o botão nunca herde bugs tridimensionais
 document.addEventListener("DOMContentLoaded", forcarPrioridadeCarrinho);
 window.addEventListener("load", forcarPrioridadeCarrinho);
 document.addEventListener("click", forcarPrioridadeCarrinho);
@@ -24,58 +24,62 @@ setTimeout(forcarPrioridadeCarrinho, 500);
 setTimeout(forcarPrioridadeCarrinho, 1200);
 
 // ==========================================================================
-// LÓGICA DE DUPLA CAMADA DE BRILHO: MANCHA FIXA NA BORDA + DETALHE SEGUIDOR NO MOUSE
+// LÓGICA DE DUPLA CAMADA DE BRILHO NOS CARDS
 // ==========================================================================
 const cards = document.querySelectorAll('.minimal-vip-card');
 cards.forEach(card => {
     const fixedGlow = card.querySelector('.card-radial-glow');
     if (!fixedGlow) return;
     
-    // 1. Cria e injeta o elemento do brilho dinâmico do mouse de forma automatizada
     const mouseGlow = document.createElement('div');
     mouseGlow.classList.add('card-mouse-glow');
     card.appendChild(mouseGlow);
     
-    // 2. Sorteia uma posição fixa encostada nas bordas/cantos ao carregar a página para o brilho padrão
     const posicoesDeBorda = [
-        { left: '-150px', top: '-150px' },                               // Canto Superior Esquerdo
-        { left: 'calc(100% - 150px)', top: '-150px' },                  // Canto Superior Direito
-        { left: '-150px', top: 'calc(100% - 150px)' },                  // Canto Inferior Esquerdo
-        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },         // Canto Inferior Direito
-        { left: 'calc(50% - 150px)', top: '-150px' },                   // Centralizado no Topo
-        { left: '-150px', top: 'calc(50% - 150px)' },                   // Lateral Esquerda
-        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }           // Lateral Direita
+        { left: '-150px', top: '-150px' },                               
+        { left: 'calc(100% - 150px)', top: '-150px' },                  
+        { left: '-150px', top: 'calc(100% - 150px)' },                  
+        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },         
+        { left: 'calc(50% - 150px)', top: '-150px' },                   
+        { left: '-150px', top: 'calc(50% - 150px)' },                   
+        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }           
     ];
     
     const posicaoSorteada = posicoesDeBorda[Math.floor(Math.random() * posicoesDeBorda.length)];
     
-    // Fixa o brilho nativo na posição sorteada (ele não se move mais)
     fixedGlow.style.left = posicaoSorteada.left;
     fixedGlow.style.top = posicaoSorteada.top;
     
-    // 3. Gerencia o posicionamento em tempo real da segunda mancha de luz sob o mouse
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
-        // Deslocamento de 125px baseado na dimensão de 250px do card-mouse-glow
         mouseGlow.style.left = `${x - 125}px`;
         mouseGlow.style.top = `${y - 125}px`;
     });
 });
 
 // ==========================================================================
-// CONFIGURAÇÃO DAS ANIMAÇÕES (ScrollReveal) com tratamento de segurança
+// CONFIGURAÇÃO DAS ANIMAÇÕES (ScrollReveal) COM DESATIVAÇÃO AUTOMÁTICA DE COMPORTAMENTO
 // ==========================================================================
 if (typeof ScrollReveal !== 'undefined') {
+    const isMobile = window.innerWidth < 900;
+
     ScrollReveal({
         origin: 'bottom',
-        distance: '30px',     
+        distance: isMobile ? '10px' : '30px',     
         duration: 800,        
         delay: 0,             
-        reset: false 
+        reset: false,
+        // 🔥 REMOVE O TRANSFORM ASSIM QUE TERMINAR A ANIMAÇÃO (Limpa o bug de parede invisível)
+        afterReveal: function (el) {
+            el.style.transform = 'none';
+            el.style.willChange = 'auto';
+            forcarPrioridadeCarrinho(); // Mantém o carrinho atualizado
+        }
     });
+
     ScrollReveal().reveal('.badge-reveal');
     ScrollReveal().reveal('.hero-content h1');
     ScrollReveal().reveal('.hero-p');
@@ -90,7 +94,7 @@ if (typeof ScrollReveal !== 'undefined') {
 }
 
 // ==========================================================================
-// LÓGICA DO TÓPICO DE FAQ (ACCORDION ABRE E FECHA)
+// LÓGICA DO FAQ ACCORDION
 // ==========================================================================
 const faqTriggers = document.querySelectorAll('.faq-accordion-trigger');
 faqTriggers.forEach(trigger => {
@@ -112,11 +116,11 @@ faqTriggers.forEach(trigger => {
 });
 
 // ==========================================================================
-// LÓGICA E RECURSOS DO CARRINHO DE COMPRAS INTERATIVO
+// LÓGICA DO CARRINHO DE COMPRAS INTERATIVO
 // ==========================================================================
 const WHATSAPP_VENDAS = "5521992307841"; 
 const WHATSAPP_SUPORTE = "5583988931266";
-const TEMPO_COOLDOWN_MINUTOS = 5; // 🕒 Tempo limite anti-spam ajustado para 5 minutos máximo
+const TEMPO_COOLDOWN_MINUTOS = 5; 
 let carrinho = [];
 let timeoutAviso = null;
 
@@ -238,7 +242,7 @@ function fecharCarrinho() {
 }
 
 // ==========================================================================
-// 🧬 SISTEMA INTELIGENTE DE GERAÇÃO DE ID E ANTI-SPAM POR TEMPO
+// SISTEMA ANTI-SPAM E AUXILIARES
 // ==========================================================================
 function gerarIDPedido() {
     const caracteres = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; 
@@ -272,18 +276,11 @@ function verificarTravaDeTempo() {
 function verificarPedidoDuplicado(carrinhoAtual) {
     const stringPedidoAtual = carrinhoAtual.map(i => `${i.nome}:${i.quantidade}`).sort().join('|');
     const ultimoPedidoEnviado = localStorage.getItem('ultimo_pedido_infinix');
-    
-    if (ultimoPedidoEnviado === stringPedidoAtual) {
-        return true; 
-    }
-    
+    if (ultimoPedidoEnviado === stringPedidoAtual) return true; 
     localStorage.setItem('ultimo_pedido_infinix', stringPedidoAtual);
     return false;
 }
 
-// ==========================================================================
-// FORMATADOR DE DISPARO EM ITÁLICO — DIRECIONADO PARA O WHATSAPP DE VENDAS
-// ==========================================================================
 function enviarPedidoWhatsApp() {
     if (carrinho.length === 0) { 
         mostrarAvisoCarrinho("Atenção: Adicione pelo menos um item antes de finalizar!", 'erro'); 
