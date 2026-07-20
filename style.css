@@ -77,14 +77,11 @@ header {
     border-radius: 50px;
     transition: all 0.25s ease;
 }
-
-/* 🟢 NOVO EFEITO NEON COM BLURZIN AO SELECIONAR/PASSAR O MOUSE */
 .nav-links a:hover { 
     color: var(--green-neon); 
     background-color: rgba(0, 188, 112, 0.06);
     text-shadow: 0 0 10px rgba(0, 188, 112, 0.6), 0 0 20px rgba(0, 188, 112, 0.3);
 }
-
 #btn-mobile { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1010; }
 #hamburger { display: block; width: 20px; height: 2px; background: currentColor; position: relative; transition: 0.4s; }
 #hamburger::before, #hamburger::after { content: ''; display: block; width: 20px; height: 2px; background: currentColor; position: absolute; transition: 0.4s; }
@@ -140,14 +137,11 @@ header {
 .content-section { padding: 100px 24px 140px 24px; position: relative; z-index: 5; background-color: var(--bg-pure); }
 .section-header { margin-bottom: 70px; text-align: center; }
 .section-header h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; font-weight: 900; letter-spacing: 1px; }
-
-/* FIXAÇÃO DA FONTE: Aplica o mesmo peso e família tipográfica da branca nas partes em verde */
 .section-header h2 span { 
     color: var(--green-neon); 
     font-family: inherit !important;
     font-weight: inherit !important;
 }
-
 .section-header p { color: var(--text-alt); font-size: 15px; margin-top: 10px; }
 .category-title { font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; margin-top: 10px; margin-bottom: 30px; border-bottom: 1px solid rgba(0, 188, 112, 0.1); padding-bottom: 10px; }
 
@@ -155,7 +149,7 @@ header {
 .grid-4-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
 .grid-3-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
-/* CARDS DE UPAGEM STANDARD — DUPLO SISTEMA DE DETALHES VERDES */
+/* CARDS DE UPAGEM STANDARD */
 .minimal-vip-card {
     background-color: rgba(8, 9, 13, 0.85); 
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -170,8 +164,6 @@ header {
     border-color: var(--green-neon);
     box-shadow: 0 10px 30px rgba(0, 188, 112, 0.15); 
 }
-
-/* 1. Camada de Brilho Fixo que o script sorteia nas bordas */
 .card-radial-glow { 
     position: absolute; 
     width: 300px; 
@@ -181,8 +173,6 @@ header {
     opacity: 1; 
     z-index: 2;
 }
-
-/* 2. Camada de Brilho Dinâmico que segue rigorosamente o mouse */
 .card-mouse-glow {
     position: absolute;
     width: 250px;
@@ -196,7 +186,6 @@ header {
 .minimal-vip-card:hover .card-mouse-glow {
     opacity: 1;
 }
-
 .card-top-content { position: relative; z-index: 3; flex-grow: 1; }
 .card-bottom-actions { margin-top: auto; position: relative; z-index: 3; }
 .plan-title-top { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 35px; text-transform: uppercase; }
@@ -213,14 +202,11 @@ header {
 .method-section { background-color: var(--bg-pure); padding: 100px 0; }
 .method-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
 .method-info h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 20px; }
-
-/* FIXAÇÃO DA FONTE: Aplica o mesmo peso e família tipográfica da branca na seção do método */
 .method-info h2 span { 
     color: var(--green-neon); 
     font-family: inherit !important;
     font-weight: inherit !important;
 }
-
 .method-info p { color: var(--text-alt); line-height: 1.7; margin-bottom: 30px; }
 .steps-wrapper { display: flex; flex-direction: column; gap: 25px; }
 .step-item { display: flex; gap: 20px; background: rgba(255, 255, 255, 0.01); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.02); }
@@ -265,26 +251,21 @@ header {
 .text-center-bento p { font-size: 13px; color: var(--text-alt); line-height: 1.5; }
 .bento-icon-center { font-size: 36px; margin-bottom: 5px; }
 .btn-bento { width: 100%; padding: 14px; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: center; border: 1px solid transparent; transition: 0.3s; margin-top: auto; }
-
-/* Cores Bento */
 .bento-main-discord .bento-badge-top, .bento-main-discord .bento-list i { color: #5865F2; }
 .bento-main-discord { border-bottom: 2px solid rgba(88, 101, 242, 0.3); }
 .bento-main-discord:hover { border-color: #5865F2; box-shadow: 0 10px 30px rgba(88, 101, 242, 0.15); }
 .btn-discord-style { background: rgba(88, 101, 242, 0.1); border-color: rgba(88, 101, 242, 0.3); color: #fff; }
 .bento-main-discord:hover .btn-discord-style { background: #5865F2; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
-
 .bento-main-whatsapp .bento-badge-top, .bento-main-whatsapp .bento-list i { color: #25D366; }
 .bento-main-whatsapp { border-top: 2px solid rgba(37, 211, 102, 0.3); }
 .bento-main-whatsapp:hover { border-color: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15); }
 .btn-whatsapp-style { background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); color: #fff; }
 .bento-main-whatsapp:hover .btn-whatsapp-style { background: #25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-
 .bento-sub-instagram .bento-icon-center { color: #E1306C; }
 .bento-sub-instagram { border-left: 2px solid rgba(225, 48, 108, 0.3); }
 .bento-sub-instagram:hover { border-color: #E1306C; box-shadow: 0 10px 30px rgba(225, 48, 108, 0.15); }
 .btn-instagram-style { background: rgba(225, 48, 108, 0.1); border-color: rgba(225, 48, 108, 0.3); color: #fff; }
 .bento-sub-instagram:hover .btn-instagram-style { background: linear-gradient(45deg, #f09433, #bc1888); }
-
 .bento-sub-tiktok .bento-icon-center { color: #00f2fe; text-shadow: 2px 2px #fe0979; }
 .bento-sub-tiktok { border-right: 2px solid rgba(0, 242, 254, 0.3); }
 .bento-sub-tiktok:hover { border-color: #00f2fe; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15); }
@@ -292,8 +273,27 @@ header {
 .bento-sub-tiktok:hover .btn-tiktok-style { background: #000; border-color: #00f2fe; text-shadow: 1px 1px #fe0979; }
 
 /* SHOPPING CART (MODAL & FLOATING) */
-#floating-cart-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--green-neon); color: #fff; border: none; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 8px 30px rgba(0, 188, 112, 0.4); z-index: 1500; display: flex; align-items: center; justify-content: center; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+#floating-cart-btn { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    width: 60px; 
+    height: 60px; 
+    background: var(--green-neon); 
+    color: #fff; 
+    border: none; 
+    border-radius: 50%; 
+    font-size: 22px; 
+    cursor: pointer; 
+    box-shadow: 0 8px 30px rgba(0, 188, 112, 0.4); 
+    z-index: 99999; /* Aumentado para prioridade no desktop */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
 #floating-cart-btn:hover { transform: scale(1.1); }
+
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
 .modal-card { background: #08090d; border: 1px solid rgba(0, 188, 112, 0.2); box-shadow: 0 0 40px rgba(0, 188, 112, 0.15); border-radius: 12px; width: 100%; max-width: 550px; padding: 30px; transform: scale(0.9); transition: transform 0.3s; position: relative; }
@@ -322,15 +322,12 @@ header {
 /* RODAPÉ PREMIUM */
 .main-footer { background-color: #040406; padding: 40px 0 25px 0; border-top: 1px solid rgba(0, 188, 112, 0.05); }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; margin-bottom: 25px; }
-
-/* FIXAÇÃO DA FONTE: Aplica o mesmo peso e família tipográfica da branca no logotipo do footer */
 .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 900; }
 .footer-logo span { 
     color: var(--green-neon); 
     font-family: inherit !important;
     font-weight: inherit !important;
 }
-
 .footer-desc { color: var(--text-alt); font-size: 13px; line-height: 1.5; margin-bottom: 16px; }
 .badges-grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .badges-grid-layout span { font-size: 10.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
@@ -351,6 +348,7 @@ header {
     .bento-main-whatsapp { grid-row: span 1; border-top: none; border-left: 2px solid rgba(37, 211, 102, 0.3); }
     .footer-top { grid-template-columns: 1fr; gap: 30px; }
 }
+
 @media (max-width: 900px) {
     header { top: 0; position: absolute; justify-content: flex-end; } 
     .navbar { width: 100%; justify-content: flex-end; padding-right: 20px; height: 85px; }
@@ -365,11 +363,21 @@ header {
     .hero-content h1 { font-size: 34px; }
     .method-grid { grid-template-columns: 1fr; text-align: center; }
     .space-orbit-container { justify-content: center; transform: translateY(20px); margin-bottom: 50px; }
+    
+    /* 🟢 CORREÇÃO CRÍTICA DO MOBILE AQUI: Força o carrinho acima de tudo */
+    #floating-cart-btn {
+        bottom: 30px !important;
+        right: 20px !important;
+        z-index: 999999 !important;
+        pointer-events: auto !important;
+    }
 }
+
 @media (max-width: 768px) {
     .bento-grid-comunidade { display: grid; grid-template-columns: 1fr; }
     .bento-main-discord, .bento-main-whatsapp, .bento-sub-instagram, .bento-sub-tiktok { grid-column: span 1; }
 }
+
 @media (max-width: 600px) {
     .badges-grid-layout { grid-template-columns: 1fr; }
     .modal-card { width: 92%; padding: 20px; }
