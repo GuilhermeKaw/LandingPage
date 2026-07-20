@@ -1,55 +1,25 @@
-// ==========================================================================
-// 🟢 CORREÇÃO CRÍTICA ULTRA DEFINITIVA DO CARRINHO PARA MOBILE (ANTI-SCROLLREVEAL)
-// ==========================================================================
-function forcarPrioridadeCarrinho() {
-    const carrinhoBtn = document.getElementById("floating-cart-btn");
-    if (carrinhoBtn) {
-        // Remove fisicamente o botão de dentro de seções e joga na raiz do site
-        if (carrinhoBtn.parentElement !== document.body) {
-            document.body.appendChild(carrinhoBtn);
-        }
-        // Aplica inline as diretrizes máximas de exibição sobrepondo qualquer biblioteca
-        carrinhoBtn.style.setProperty("position", "fixed", "important");
-        carrinhoBtn.style.setProperty("z-index", "999999999", "important");
-        carrinhoBtn.style.setProperty("transform", "none", "important");
-        carrinhoBtn.style.setProperty("display", "flex", "important");
-    }
-}
-
-// Escuta em múltiplas frentes para garantir que o botão nunca herde bugs tridimensionais
-document.addEventListener("DOMContentLoaded", forcarPrioridadeCarrinho);
-window.addEventListener("load", forcarPrioridadeCarrinho);
-document.addEventListener("click", forcarPrioridadeCarrinho);
-setTimeout(forcarPrioridadeCarrinho, 500);
-setTimeout(forcarPrioridadeCarrinho, 1200);
-
-// ==========================================================================
-// LÓGICA DE DUPLA CAMADA DE BRILHO NOS CARDS
-// ==========================================================================
+// Efeito visual de luz nos cards ao mover o mouse
 const cards = document.querySelectorAll('.minimal-vip-card');
 cards.forEach(card => {
     const fixedGlow = card.querySelector('.card-radial-glow');
     if (!fixedGlow) return;
-    
     const mouseGlow = document.createElement('div');
     mouseGlow.classList.add('card-mouse-glow');
     card.appendChild(mouseGlow);
-    
     const posicoesDeBorda = [
-        { left: '-150px', top: '-150px' },                               
-        { left: 'calc(100% - 150px)', top: '-150px' },                  
-        { left: '-150px', top: 'calc(100% - 150px)' },                  
-        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },         
-        { left: 'calc(50% - 150px)', top: '-150px' },                   
-        { left: '-150px', top: 'calc(50% - 150px)' },                   
-        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }           
+        { left: '-150px', top: '-150px' },
+        { left: 'calc(100% - 150px)', top: '-150px' },
+        { left: '-150px', top: 'calc(100% - 150px)' },
+        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },
+        { left: 'calc(50% - 150px)', top: '-150px' },
+        { left: '-150px', top: 'calc(50% - 150px)' },
+        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }
     ];
     
     const posicaoSorteada = posicoesDeBorda[Math.floor(Math.random() * posicoesDeBorda.length)];
     
     fixedGlow.style.left = posicaoSorteada.left;
     fixedGlow.style.top = posicaoSorteada.top;
-    
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -60,26 +30,18 @@ cards.forEach(card => {
     });
 });
 
-// ==========================================================================
-// CONFIGURAÇÃO DAS ANIMAÇÕES (ScrollReveal) COM DESATIVAÇÃO AUTOMÁTICA DE COMPORTAMENTO
-// ==========================================================================
+// Inicialização do ScrollReveal (Reseta a distorção horizontal pós-animação)
 if (typeof ScrollReveal !== 'undefined') {
-    const isMobile = window.innerWidth < 900;
-
     ScrollReveal({
         origin: 'bottom',
-        distance: isMobile ? '10px' : '30px',     
+        distance: '30px',     
         duration: 800,        
         delay: 0,             
         reset: false,
-        // 🔥 REMOVE O TRANSFORM ASSIM QUE TERMINAR A ANIMAÇÃO (Limpa o bug de parede invisível)
         afterReveal: function (el) {
             el.style.transform = 'none';
-            el.style.willChange = 'auto';
-            forcarPrioridadeCarrinho(); // Mantém o carrinho atualizado
         }
     });
-
     ScrollReveal().reveal('.badge-reveal');
     ScrollReveal().reveal('.hero-content h1');
     ScrollReveal().reveal('.hero-p');
@@ -93,9 +55,7 @@ if (typeof ScrollReveal !== 'undefined') {
     ScrollReveal().reveal('.reveal-right');
 }
 
-// ==========================================================================
-// LÓGICA DO FAQ ACCORDION
-// ==========================================================================
+// Controle do FAQ Accordion
 const faqTriggers = document.querySelectorAll('.faq-accordion-trigger');
 faqTriggers.forEach(trigger => {
     trigger.addEventListener('click', function() {
@@ -115,15 +75,14 @@ faqTriggers.forEach(trigger => {
     });
 });
 
-// ==========================================================================
-// LÓGICA DO CARRINHO DE COMPRAS INTERATIVO
-// ==========================================================================
+// Configurações Globais do Carrinho e Contatos
 const WHATSAPP_VENDAS = "5521992307841"; 
 const WHATSAPP_SUPORTE = "5583988931266";
-const TEMPO_COOLDOWN_MINUTOS = 5; 
+const TEMPO_COOLDOWN_MINUTOS = 5;
 let carrinho = [];
 let timeoutAviso = null;
 
+// Exibição do banner de alertas internos do modal
 function mostrarAvisoCarrinho(texto, tipo = 'erro') {
     const banner = document.getElementById('cart-warning-banner');
     const textSpan = document.getElementById('cart-warning-text');
@@ -151,6 +110,7 @@ function mostrarAvisoCarrinho(texto, tipo = 'erro') {
     timeoutAviso = setTimeout(() => { banner.classList.remove('show'); }, 5000);
 }
 
+// Inserção de itens no objeto do carrinho (Limites: 4 itens distintos / 10 qts por item)
 function adicionarAoCarrinho(nome, preco, tipo) {
     const itemExistente = carrinho.find(item => item.nome === nome);
     
@@ -167,12 +127,13 @@ function adicionarAoCarrinho(nome, preco, tipo) {
             mostrarAvisoCarrinho(`Atenção: Você pode adicionar no máximo 4 produtos diferentes ao carrinho!`, 'erro');
             return;
         }
-        carrinho.push({ nome: nome, preco: parseFloat(preco), tipo: tipo, metadata_tipo: tipo, quantidade: 1 });
+        carrinho.push({ nome: nome, preco: parseFloat(preco), tipo: tipo, metadata_tipo: tipo, Club_count: 1, quantidade: 1 });
     }
     renderizarCarrinho();
     abrirCarrinho();
 }
 
+// Alteração de quantidades (+/-) dentro do modal
 function alterarQuantidade(nome, mudanca) {
     const item = carrinho.find(item => item.nome === nome);
     if (!item) return;
@@ -186,11 +147,13 @@ function alterarQuantidade(nome, mudanca) {
     renderizarCarrinho();
 }
 
+// Remoção direta de um produto
 function removerDoCarrinho(nome) {
     carrinho = carrinho.filter(item => item.nome !== nome);
     renderizarCarrinho();
 }
 
+// Atualização e montagem do HTML dinâmico do carrinho
 function renderizarCarrinho() {
     const container = document.getElementById('cart-items-container');
     const totalElement = document.getElementById('cart-total-price');
@@ -230,20 +193,15 @@ function renderizarCarrinho() {
     totalElement.innerText = `R$ ${precoTotalGeral.toFixed(2).replace('.', ',')}`;
 }
 
-function abrirCarrinho() { 
-    document.getElementById('cart-modal').classList.add('active'); 
-    forcarPrioridadeCarrinho();
-}
-
+// Abre e fecha a janela modal
+function abrirCarrinho() { document.getElementById('cart-modal').classList.add('active'); }
 function fecharCarrinho() {
     document.getElementById('cart-modal').classList.remove('active');
     const banner = document.getElementById('cart-warning-banner');
     if (banner) banner.classList.remove('show');
 }
 
-// ==========================================================================
-// SISTEMA ANTI-SPAM E AUXILIARES
-// ==========================================================================
+// Geração do código identificador do pedido
 function gerarIDPedido() {
     const caracteres = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; 
     let resultado = "";
@@ -253,6 +211,7 @@ function gerarIDPedido() {
     return `#IFX-${resultado}`;
 }
 
+// Trava anti-spam baseada no tempo do navegador (LocalStorage)
 function verificarTravaDeTempo() {
     const ultimoEnvioTimestamp = localStorage.getItem('infinix_timestamp_envio');
     if (!ultimoEnvioTimestamp) return { bloqueado: false };
@@ -273,20 +232,25 @@ function verificarTravaDeTempo() {
     return { bloqueado: false };
 }
 
+// Evita o reenvio consecutivo do mesmo objeto de carrinho
 function verificarPedidoDuplicado(carrinhoAtual) {
     const stringPedidoAtual = carrinhoAtual.map(i => `${i.nome}:${i.quantidade}`).sort().join('|');
     const ultimoPedidoEnviado = localStorage.getItem('ultimo_pedido_infinix');
-    if (ultimoPedidoEnviado === stringPedidoAtual) return true; 
+    
+    if (ultimoPedidoEnviado === stringPedidoAtual) {
+        return true; 
+    }
+    
     localStorage.setItem('ultimo_pedido_infinix', stringPedidoAtual);
     return false;
 }
 
+// Formatação do texto e disparo do redirecionamento para a API do WhatsApp (Vendas)
 function enviarPedidoWhatsApp() {
     if (carrinho.length === 0) { 
         mostrarAvisoCarrinho("Atenção: Adicione pelo menos um item antes de finalizar!", 'erro'); 
         return; 
     }
-    
     const statusTempo = verificarTravaDeTempo();
     if (statusTempo.bloqueado) {
         mostrarAvisoCarrinho(`Ação bloqueada! Aguarde ${statusTempo.minutos}m e ${statusTempo.segundos}s para enviar uma nova solicitação.`, 'erro');
@@ -328,14 +292,13 @@ function enviarPedidoWhatsApp() {
     mostrarAvisoCarrinho(`Sucesso: Pedido ${idPedido} gerado! Redirecionando para o WhatsApp...`, 'sucesso');
 }
 
+// Abertura direta do canal de dúvidas (Sem travas de Cooldown)
 function chamarSuporteAvulso() {
     let msgSuporte = `_Olá! Gostaria de tirar algumas dúvidas sobre os procedimentos de Upagem da Infinix Mod antes de fechar meu pacote._`;
     window.open(`https://wa.me/${WHATSAPP_SUPORTE}?text=${encodeURIComponent(msgSuporte)}`, '_blank');
 }
 
-// ==========================================================================
-// MENU MOBILE RESPONSIVO
-// ==========================================================================
+// Ativação do menu hambúrguer responsivo
 const btnMobile = document.getElementById('btn-mobile');
 function toggleMenu(event) {
     if (event.type === 'touchstart') event.preventDefault();
@@ -352,4 +315,16 @@ menuLinks.forEach(link => {
         const nav = document.getElementById('nav');
         if (nav) nav.classList.remove('active');
     });
+});
+
+// Travas de segurança contra ferramentas de inspeção (Botão direito e atalhos F12/Ctrl)
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('keydown', event => {
+    if (
+        event.key === 'F12' || 
+        (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) || 
+        (event.ctrlKey && event.key === 'U')
+    ) {
+        event.preventDefault();
+    }
 });
