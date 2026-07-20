@@ -1,24 +1,50 @@
-// LÓGICA DE DUPLA CAMADA DE BRILHO: MANCHA FIXA NA BORDA + DETALHE SEGUIDOR NO MOUSE
-const cards = document.querySelectorAll('.minimal-vip-card');
+// ==========================================================================
+// 🟢 CORREÇÃO CRÍTICA ULTRA DEFINITIVA DO CARRINHO PARA MOBILE (ANTI-SCROLLREVEAL)
+// ==========================================================================
+function forcarPrioridadeCarrinho() {
+    const carrinhoBtn = document.getElementById("floating-cart-btn");
+    if (carrinhoBtn) {
+        // Move o botão para a raiz do body, isolando-o das seções animadas
+        if (carrinhoBtn.parentElement !== document.body) {
+            document.body.appendChild(carrinhoBtn);
+        }
+        // Força via inline as propriedades de renderização e remove interferências
+        carrinhoBtn.style.setProperty("position", "fixed", "important");
+        carrinhoBtn.style.setProperty("z-index", "999999999", "important");
+        carrinhoBtn.style.setProperty("transform", "none", "important");
+        carrinhoBtn.style.setProperty("display", "flex", "important");
+    }
+}
 
+// Executa em múltiplos estágios do carregamento para garantir o bypass do ScrollReveal
+document.addEventListener("DOMContentLoaded", forcarPrioridadeCarrinho);
+window.addEventListener("load", forcarPrioridadeCarrinho);
+document.addEventListener("click", forcarPrioridadeCarrinho);
+setTimeout(forcarPrioridadeCarrinho, 500);
+setTimeout(forcarPrioridadeCarrinho, 1200);
+
+// ==========================================================================
+// LÓGICA DE DUPLA CAMADA DE BRILHO: MANCHA FIXA NA BORDA + DETALHE SEGUIDOR NO MOUSE
+// ==========================================================================
+const cards = document.querySelectorAll('.minimal-vip-card');
 cards.forEach(card => {
     const fixedGlow = card.querySelector('.card-radial-glow');
     if (!fixedGlow) return;
-
+    
     // 1. Cria e injeta o elemento do brilho dinâmico do mouse de forma automatizada
     const mouseGlow = document.createElement('div');
     mouseGlow.classList.add('card-mouse-glow');
     card.appendChild(mouseGlow);
-
+    
     // 2. Sorteia uma posição fixa encostada nas bordas/cantos ao carregar a página para o brilho padrão
     const posicoesDeBorda = [
-        { left: '-150px', top: '-150px' },                          // Canto Superior Esquerdo
-        { left: 'calc(100% - 150px)', top: '-150px' },                 // Canto Superior Direito
-        { left: '-150px', top: 'calc(100% - 150px)' },                 // Canto Inferior Esquerdo
-        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },        // Canto Inferior Direito
-        { left: 'calc(50% - 150px)', top: '-150px' },                  // Centralizado no Topo
-        { left: '-150px', top: 'calc(50% - 150px)' },                  // Lateral Esquerda
-        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }          // Lateral Direita
+        { left: '-150px', top: '-150px' },                               // Canto Superior Esquerdo
+        { left: 'calc(100% - 150px)', top: '-150px' },                  // Canto Superior Direito
+        { left: '-150px', top: 'calc(100% - 150px)' },                  // Canto Inferior Esquerdo
+        { left: 'calc(100% - 150px)', top: 'calc(100% - 150px)' },         // Canto Inferior Direito
+        { left: 'calc(50% - 150px)', top: '-150px' },                   // Centralizado no Topo
+        { left: '-150px', top: 'calc(50% - 150px)' },                   // Lateral Esquerda
+        { left: 'calc(100% - 150px)', top: 'calc(50% - 150px)' }           // Lateral Direita
     ];
     
     const posicaoSorteada = posicoesDeBorda[Math.floor(Math.random() * posicoesDeBorda.length)];
@@ -26,7 +52,7 @@ cards.forEach(card => {
     // Fixa o brilho nativo na posição sorteada (ele não se move mais)
     fixedGlow.style.left = posicaoSorteada.left;
     fixedGlow.style.top = posicaoSorteada.top;
-
+    
     // 3. Gerencia o posicionamento em tempo real da segunda mancha de luz sob o mouse
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -39,7 +65,9 @@ cards.forEach(card => {
     });
 });
 
+// ==========================================================================
 // CONFIGURAÇÃO DAS ANIMAÇÕES (ScrollReveal) com tratamento de segurança
+// ==========================================================================
 if (typeof ScrollReveal !== 'undefined') {
     ScrollReveal({
         origin: 'bottom',
@@ -61,7 +89,9 @@ if (typeof ScrollReveal !== 'undefined') {
     ScrollReveal().reveal('.reveal-right');
 }
 
+// ==========================================================================
 // LÓGICA DO TÓPICO DE FAQ (ACCORDION ABRE E FECHA)
+// ==========================================================================
 const faqTriggers = document.querySelectorAll('.faq-accordion-trigger');
 faqTriggers.forEach(trigger => {
     trigger.addEventListener('click', function() {
@@ -81,11 +111,12 @@ faqTriggers.forEach(trigger => {
     });
 });
 
+// ==========================================================================
 // LÓGICA E RECURSOS DO CARRINHO DE COMPRAS INTERATIVO
+// ==========================================================================
 const WHATSAPP_VENDAS = "5521992307841"; 
 const WHATSAPP_SUPORTE = "5583988931266";
 const TEMPO_COOLDOWN_MINUTOS = 5; // 🕒 Tempo limite anti-spam ajustado para 5 minutos máximo
-
 let carrinho = [];
 let timeoutAviso = null;
 
@@ -195,14 +226,20 @@ function renderizarCarrinho() {
     totalElement.innerText = `R$ ${precoTotalGeral.toFixed(2).replace('.', ',')}`;
 }
 
-function abrirCarrinho() { document.getElementById('cart-modal').classList.add('active'); }
+function abrirCarrinho() { 
+    document.getElementById('cart-modal').classList.add('active'); 
+    forcarPrioridadeCarrinho();
+}
+
 function fecharCarrinho() {
     document.getElementById('cart-modal').classList.remove('active');
     const banner = document.getElementById('cart-warning-banner');
     if (banner) banner.classList.remove('show');
 }
 
+// ==========================================================================
 // 🧬 SISTEMA INTELIGENTE DE GERAÇÃO DE ID E ANTI-SPAM POR TEMPO
+// ==========================================================================
 function gerarIDPedido() {
     const caracteres = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; 
     let resultado = "";
@@ -215,11 +252,9 @@ function gerarIDPedido() {
 function verificarTravaDeTempo() {
     const ultimoEnvioTimestamp = localStorage.getItem('infinix_timestamp_envio');
     if (!ultimoEnvioTimestamp) return { bloqueado: false };
-
     const agora = Date.now();
     const diferencaMilisegundos = agora - parseInt(ultimoEnvioTimestamp);
     const cooldownMilisegundos = TEMPO_COOLDOWN_MINUTOS * 60 * 1000;
-
     if (diferencaMilisegundos < cooldownMilisegundos) {
         const tempoRestanteMilisegundos = cooldownMilisegundos - diferencaMilisegundos;
         const minutosRestantes = Math.floor(tempoRestanteMilisegundos / 60 / 1000);
@@ -231,7 +266,6 @@ function verificarTravaDeTempo() {
             segundos: segundosRestantes
         };
     }
-
     return { bloqueado: false };
 }
 
@@ -247,30 +281,26 @@ function verificarPedidoDuplicado(carrinhoAtual) {
     return false;
 }
 
+// ==========================================================================
 // FORMATADOR DE DISPARO EM ITÁLICO — DIRECIONADO PARA O WHATSAPP DE VENDAS
+// ==========================================================================
 function enviarPedidoWhatsApp() {
     if (carrinho.length === 0) { 
         mostrarAvisoCarrinho("Atenção: Adicione pelo menos um item antes de finalizar!", 'erro'); 
         return; 
     }
     
-    // 1ª VALIDAÇÃO: Bloqueio Geral por Spam de Tempo (5 minutos)
     const statusTempo = verificarTravaDeTempo();
     if (statusTempo.bloqueado) {
         mostrarAvisoCarrinho(`Ação bloqueada! Aguarde ${statusTempo.minutos}m e ${statusTempo.segundos}s para enviar uma nova solicitação.`, 'erro');
         return;
     }
-
-    // 2ª VALIDAÇÃO: Evitar reenvio do exato mesmo carrinho (Duplicatas seguidas)
     if (verificarPedidoDuplicado(carrinho)) {
         mostrarAvisoCarrinho("Atenção: Esse pedido idêntico já foi enviado! Altere os itens se quiser fazer uma nova solicitação.", 'erro');
         return;
     }
     
-    // Salva o momento atual no navegador para iniciar os 5 min de bloqueio
     localStorage.setItem('infinix_timestamp_envio', Date.now().toString());
-
-    // Gera o ID exclusivo do pedido
     const idPedido = gerarIDPedido();
     
     let mensagem = `_SOLICITAÇÃO DE UPGRADE — INFINIX MOD_\n`;
@@ -296,21 +326,19 @@ function enviarPedidoWhatsApp() {
     mensagem += `_Status: Aguardando validação da equipe de suporte para início do procedimento na conta._`;
     
     window.open(`https://wa.me/${WHATSAPP_VENDAS}?text=${encodeURIComponent(mensagem)}`, '_blank');
-
-    // 🧼 CORREÇÃO: Limpa o carrinho local e atualiza a tela após abrir o link do WhatsApp
     carrinho = [];
     renderizarCarrinho();
-
     mostrarAvisoCarrinho(`Sucesso: Pedido ${idPedido} gerado! Redirecionando para o WhatsApp...`, 'sucesso');
 }
 
-// DISPARADOR DE SUPORTE ATUALIZADO (Livre, sem trava de tempo para o cara poder tirar dúvidas)
 function chamarSuporteAvulso() {
     let msgSuporte = `_Olá! Gostaria de tirar algumas dúvidas sobre os procedimentos de Upagem da Infinix Mod antes de fechar meu pacote._`;
     window.open(`https://wa.me/${WHATSAPP_SUPORTE}?text=${encodeURIComponent(msgSuporte)}`, '_blank');
 }
 
+// ==========================================================================
 // MENU MOBILE RESPONSIVO
+// ==========================================================================
 const btnMobile = document.getElementById('btn-mobile');
 function toggleMenu(event) {
     if (event.type === 'touchstart') event.preventDefault();
