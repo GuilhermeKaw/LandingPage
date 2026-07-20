@@ -36,23 +36,13 @@ body {
     z-index: 1001;
 }
 
-/* ANTI-VAZAMENTO DE TEXTO E CAMADAS FANTASMAS (Mata o bug de Pedidos Personalizados) */
-section, 
-.content-section,
-.reveal-left, 
-.reveal-right, 
-.reveal-bottom {
+/* ANTI-VAZAMENTO CIRÚRGICO (Apenas nas seções de texto corrido para não cortar a órbita) */
+#personalizados {
     overflow: hidden !important;
-    max-width: 100vw !important;
 }
-.section-header h2,
-.category-title,
-.cart-item-name, 
-.minimal-vip-card h3,
-.minimal-vip-card p {
+.section-header h2 {
     white-space: normal !important;
     word-break: break-word !important;
-    overflow-wrap: break-word !important;
 }
 
 /* NAVBAR FLOATING PILL */
@@ -170,7 +160,7 @@ header {
 .grid-4-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
 .grid-3-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
-/* CARDS DE UPAGEM STANDARD */
+/* CARDS DE UPAGEM STANDARD - RESTAURADOS ORIGINAL COMPACTO */
 .minimal-vip-card {
     background-color: rgba(8, 9, 13, 0.85); 
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -179,6 +169,7 @@ header {
     padding: 40px 24px 30px 24px; position: relative; overflow: hidden;
     display: flex; flex-direction: column; justify-content: space-between;
     transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+    height: auto;
 }
 .minimal-vip-card:hover { 
     transform: translateY(-5px); 
@@ -207,10 +198,10 @@ header {
 .minimal-vip-card:hover .card-mouse-glow {
     opacity: 1;
 }
-.card-top-content { position: relative; z-index: 3; flex-grow: 1; }
+.card-top-content { position: relative; z-index: 3; margin-bottom: 30px; }
 .card-bottom-actions { margin-top: auto; position: relative; z-index: 3; }
 .plan-title-top { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 35px; text-transform: uppercase; }
-.minimal-vip-card .features-list { margin-bottom: 25px; }
+.minimal-vip-card .features-list { margin-bottom: 0px; }
 .minimal-vip-card .features-list li { font-size: 13.5px; color: #ced4da; margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
 .minimal-vip-card .features-list li i { color: var(--green-neon); font-size: 14px; width: 16px; margin-top: 2px; }
 .price-wrapper { border-top: 1px solid rgba(255, 255, 255, 0.03); padding-top: 20px; margin-bottom: 20px; text-align: center; }
@@ -385,7 +376,6 @@ header {
     .method-grid { grid-template-columns: 1fr; text-align: center; }
     .space-orbit-container { justify-content: center; transform: translateY(20px); margin-bottom: 50px; }
     
-    /* Reduz o título gigante que vaza no Mobile e quebra as camadas */
     .section-header h2 {
         font-size: 26px !important;
         line-height: 1.3 !important;
